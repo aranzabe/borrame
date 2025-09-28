@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class MiControlador extends Controller
 {
     public function getUser(Request $request) {
@@ -12,6 +13,7 @@ class MiControlador extends Controller
 
 
     public function addUser(Request $request) {
-        return response()->json(['nombre' => $request->get('usuario')], 201);
+        $fak = \Faker\Factory::create('es_ES');
+        return response()->json(['nombre' => $request->get('usuario'), 'alternativo' => $fak->name], 201);
     }
 }
